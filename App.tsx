@@ -1,12 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Iniciar from './src/screens/Iniciar';
+import UsuariosLista from './src/screens/UsuariosList';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Iniciar">
+        <Stack.Screen name="Iniciar" component={Iniciar} />
+        <Stack.Screen name="UsuariosLista" component={UsuariosLista} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
